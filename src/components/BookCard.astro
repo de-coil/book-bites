@@ -13,7 +13,7 @@ const { book } = Astro.props
   <p class="book-title">{book.data.title}, {book.data.rating}/10</p>
   <p class="book-author">{book.data.author}</p>
   <p class="book-summary">{book.data.summary}</p>
-  <a href="">Read Review</a>
+  <a href={`/books/${book.id}`}>Read Review</a>
 </div>
 
 <style>
@@ -25,10 +25,10 @@ const { book } = Astro.props
 		text-align: right;
 	}
 	.book-card {
-		background-color: #f9f6fc;
+		background-color: #efe7fa;
 		padding: 16px 20px;
 		margin: 20px auto;
-		box-shadow: 8px 8px 0 #ebe5f2;
+		box-shadow: 8px 8px 0 #dcd0ea;
 	}
 	.book-title {
 		font-size: 1.4em;
