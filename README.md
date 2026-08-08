@@ -2,9 +2,9 @@
 
 # Book Bites
 
-A personal library of book reviews and inspiring quotes, built with Astro following Net-Nija's [Astro Crash Course](https://www.youtube.com/playlist?list=PL4cUxeGkcC9hXL99yOeCcUrdUee8u36s3) on YouTube. This is my custom polished version.
+A personal library of book reviews and inspiring quotes, built with Astro following Net-Nija's [Astro Crash Course](https://www.youtube.com/playlist?list=PL4cUxeGkcC9hXL99yOeCcUrdUee8u36s3) on YouTube. This is my custom polished version, hosted on Cloudflare.
 
-[![Live Demo](https://img.shields.io/badge/Demo-Live%20Site-brightgreen?style=for-the-badge)](https://de-coil.github.io/book-bites/)
+[![Live Demo](https://img.shields.io/badge/Demo-Live%20Site-brightgreen?style=for-the-badge)](https://book-bites.deadmedia.store/)
 
 ![Home page](public/homepage.png)
 A quick preview
