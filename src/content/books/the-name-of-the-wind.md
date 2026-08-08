@@ -1,7 +1,7 @@
 ---
 title: "The Name of The Wind"
 author: "Patrick Rothfuss"
-summary: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, reprehenderit."
+summary: "A detective searches for a missing umbrella that may or may not be a government agency. Chronology behaves like jelly."
 rating: 9
 ---
 

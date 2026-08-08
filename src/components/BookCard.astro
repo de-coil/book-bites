@@ -1,11 +1,9 @@
 ---
 import type { CollectionEntry } from 'astro:content'
 
-//interfaccia TS per aggiungere un check sui props passati
 interface Props {
   book: CollectionEntry<'books'>
 }
-//come destrutturare un prop (estrarre i suoi contenuti)
 const { book } = Astro.props
 ---
 
@@ -17,28 +15,43 @@ const { book } = Astro.props
 </div>
 
 <style>
-	h2 {
-		padding-right: 10px;
-		border-right: 8px solid #ebe5f2;
-		border-bottom: 8px solid #ebe6f2;
-		margin-bottom: 40px;
-		text-align: right;
-	}
 	.book-card {
-		background-color: #efe7fa;
+		background-color: var(--card-bg);
 		padding: 16px 20px;
 		margin: 20px auto;
-		box-shadow: 8px 8px 0 #dcd0ea;
+		box-shadow: 8px 8px 0 var(--shadow-color);
+		border-radius: 8px;
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
+	}
+	.book-card:hover {
+		transform: translate(-2px, -2px);
+		box-shadow: 10px 10px 0 var(--shadow-color);
 	}
 	.book-title {
 		font-size: 1.4em;
 		font-weight: bold;
 		margin: 0;
+		color: var(--text-primary);
 	}
-  .book-author{
-    margin-top: 0;
-  }
-  .book-summary{
-    font-size: 1em;
-  }
+	.book-author {
+		margin-top: 0;
+		color: var(--text-secondary);
+	}
+	.book-summary {
+		font-size: 1em;
+		color: var(--text-secondary);
+	}
+	a {
+		display: inline-block;
+		background-color: var(--accent-primary);
+		color: #fff;
+		padding: 8px 16px;
+		border-radius: 4px;
+		text-decoration: none;
+		margin-top: 10px;
+		transition: background-color 0.3s ease;
+	}
+	a:hover {
+		background-color: var(--accent-hover);
+	}
 </style>

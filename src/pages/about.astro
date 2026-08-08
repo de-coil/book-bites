@@ -1,11 +1,54 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro"
+
+const getUser = () => {
+	return Math.random() < 0.5 ? null : {
+		name: 'Mario',
+		email: 'mario@bookbites.com',
+	}
+}
+const user = getUser()
 ---
 
 <BaseLayout>
 	<div class="content">
-		<h2>About</h2>
-		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio dolorem fugiat pariatur corrupti, facilis sequi illum itaque eveniet minima fuga! Dolore voluptatibus expedita mollitia aspernatur at molestiae, exercitationem adipisci iste?</p>
-		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio dolorem fugiat pariatur corrupti, facilis sequi illum itaque eveniet minima fuga! Dolore voluptatibus expedita mollitia aspernatur at molestiae, exercitationem adipisci iste?</p>
+		<h2>About Book Bites</h2>
+		{user && (
+			<div class="user-section">
+				<h3>Welcome back, {user.name}!</h3>
+				<p>Logged in as: {user.email}</p>
+			</div>
+		)}
+		<p>Welcome to Book Bites, your personal library of book reviews and inspiring quotes.</p>
+		<p>Here you'll find thoughtful reviews of books we've read, along with a collection of quotes that inspire and motivate.</p>
+		<p>Whether you're looking for your next great read or just need a moment of inspiration, you've come to the right place.</p>
 	</div>
 </BaseLayout>
+
+<style>
+	.content {
+		max-width: 800px;
+	}
+	.content h2 {
+		font-family: 'Righteous', cursive;
+		text-align: center;
+	}
+	.content p {
+		line-height: 1.8;
+	}
+	.user-section {
+		background-color: var(--bg-secondary);
+		padding: 16px 20px;
+		border-radius: 8px;
+		margin-bottom: 30px;
+		border-left: 4px solid var(--accent-primary);
+	}
+	.user-section h3 {
+		margin: 0 0 8px 0;
+		color: var(--accent-primary);
+	}
+	.user-section p {
+		margin: 0;
+		font-size: 1em;
+	}
+</style>

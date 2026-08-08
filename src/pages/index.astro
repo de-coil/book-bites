@@ -1,46 +1,111 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro"
+import BookCard from "@/components/BookCard.astro"
+import { getCollection } from "astro:content"
 
-{/*
-funzione per simulare chiamata al server per check se lo user esiste o meno
-di conseguenza preparare la giusta risposta del frontend per entrambi i casi
-*/}
-const getUser = () => {
-	return Math.random() < 0.5 ? null : {
-		name: 'Mario',
-		email: 'mario@bookbites.com',
-	}
-}
-const user = getUser()
+const books = await getCollection('books')
+const recentBooks = books.slice(0, 3)
 ---
 
 <BaseLayout>
 	<div class="content">
-		{user && (
-			<h2>Welcome, {user.name}</h2>
-			<p>Logged in as: {user.email}</p>
-		)}
-		<h2>Welcome</h2>
-		<p>Do you want to login?</p>
-		<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae enim est debitis voluptates nisi in iure ut quo eum? Error ea iusto magnam omnis nostrum reprehenderit id quidem possimus voluptatem.</p>
-		<a href="/books">Take a look</a>
+		<section class="hero">
+			<h2>Welcome to Book Bites</h2>
+			<p>Your personal library of book reviews and inspiring quotes</p>
+			<div class="hero-links">
+				<a href="/books" class="btn">Browse Books</a>
+				<a href="/quotes" class="btn btn-secondary">Read Quotes</a>
+			</div>
+		</section>
+
+		<section class="recent-section">
+			<h2>Recent Reviews</h2>
+			<div class="books-grid">
+				{recentBooks.map(book => <BookCard book={book} />)}
+			</div>
+			{recentBooks.length > 0 && (
+				<a href="/books" class="view-all">View all books →</a>
+			)}
+		</section>
 	</div>
 </BaseLayout>
 
 <style>
-	.content {
+	.hero {
 		text-align: center;
+		padding: 60px 20px;
+		background-color: var(--bg-secondary);
+		border-radius: 8px;
+		margin-bottom: 60px;
 	}
-	a {
+
+	.hero h2 {
+		font-size: 2.5em;
+		margin-bottom: 10px;
+		font-family: 'Righteous', cursive;
+	}
+
+	.hero p {
+		font-size: 1.3em;
+		margin-bottom: 30px;
+	}
+
+	.hero-links {
+		display: flex;
+		gap: 16px;
+		justify-content: center;
+	}
+
+	.btn {
 		display: inline-block;
-		background-color: #7a49c5;
+		background-color: var(--accent-primary);
 		color: #fff;
-		padding: 6px 10px;
-		border-radius: 2px;
+		padding: 12px 24px;
+		border-radius: 4px;
 		text-decoration: none;
+		font-weight: 500;
+		transition: background-color 0.3s ease;
+	}
+
+	.btn:hover {
+		background-color: var(--accent-hover);
+	}
+
+	.btn-secondary {
+		background-color: transparent;
+		border: 2px solid var(--accent-primary);
+		color: var(--accent-primary);
+	}
+
+	.btn-secondary:hover {
+		background-color: var(--accent-primary);
+		color: #fff;
+	}
+
+	.recent-section {
+		margin-top: 40px;
+	}
+
+	.recent-section h2 {
+		margin-bottom: 30px;
+	}
+
+	.books-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+		gap: 20px;
+		margin-bottom: 30px;
+	}
+
+	.view-all {
+		display: inline-block;
+		color: var(--accent-primary);
+		text-decoration: none;
+		font-weight: 500;
 		margin-top: 20px;
 	}
-	a:hover {
-			background-color: #965ee9;
-		}
+
+	.view-all:hover {
+		color: var(--accent-hover);
+	}
 </style>
