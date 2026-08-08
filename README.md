@@ -1,6 +1,15 @@
+<div align="center">
+
 # Book Bites
 
-A personal library of book reviews and inspiring quotes, built with Astro and deployed on Cloudflare.
+A personal library of book reviews and inspiring quotes, built with Astro following Net-Nija's [Astro Crash Course](https://www.youtube.com/playlist?list=PL4cUxeGkcC9hXL99yOeCcUrdUee8u36s3) on YouTube. This is my custom polished version.
+
+[![Live Demo](https://img.shields.io/badge/Demo-Live%20Site-brightgreen?style=for-the-badge)](https://de-coil.github.io/book-bites/)
+
+![Home page](public/homepage.png)
+A quick preview
+
+</div>
 
 ## Features
 
@@ -104,4 +113,4 @@ The site uses CSS custom properties for theming. Theme preference is saved to lo
 
 ## License
 
-MIT License - see [LICENSE](LICENSE) file for details.
+[MIT License](LICENSE)
